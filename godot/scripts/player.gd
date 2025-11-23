@@ -91,12 +91,7 @@ func start_dash():
 	if input_dir.length() > 0:
 		dash_direction = (camera.global_transform.basis.z * input_dir.y + camera.global_transform.basis.x * input_dir.x).normalized()
 	else:
-		if is_on_floor():
-			dash_direction = -camera.global_transform.basis.z
-			dash_direction.y = 0
-			dash_direction = dash_direction.normalized()
-		else:
-			dash_direction = -camera.global_transform.basis.z.normalized()
+		dash_direction = -camera.global_transform.basis.z.normalized()
 			
 	await get_tree().create_timer(DASH_DURATION).timeout
 	end_dash()
